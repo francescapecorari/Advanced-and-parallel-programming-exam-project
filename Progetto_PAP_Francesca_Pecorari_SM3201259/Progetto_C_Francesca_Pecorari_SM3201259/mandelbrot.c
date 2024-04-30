@@ -96,7 +96,7 @@ void createAndSaveComplexGrid(struct ComplexGrid* cgrid) {
 
     // alloco la memoria per l'array 2D
     cgrid->grid = (double complex**)malloc(cgrid->nrows * sizeof(double complex*));
-    #pragma omp parallel
+    #pragma omp parallel for
     for (int i = 0; i < cgrid->nrows; i++) {
         cgrid->grid[i] = (double complex*)malloc(cgrid->ncols * sizeof(double complex));
     }
